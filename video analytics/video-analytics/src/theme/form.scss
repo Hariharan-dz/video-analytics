@@ -1,0 +1,428 @@
+/* Text area Css Start */
+.textarea {
+  font-size: 14px;
+  color: var(--grid-content-txt);
+  --border-color: var(--ion-color-border);
+  font-family: "roboto" !important;
+  font-style: normal;
+
+  .label-floating {
+    -webkit-transform: translateY(12%) !important;
+    transform: translateY(12px) !important;
+  }
+
+  &.item-has-focus {
+    --show-full-highlight: 0.65;
+    --highlight-background: var(--ion-color-border);
+    --highlight-color-valid: var(--grid-content-txt);
+
+    ion-label {
+      font-size: 14px;
+      color: var(--grid-content-txt);
+      transform: translateY(-10px) !important;
+      font-family: "inter";
+      font-style: normal;
+    }
+  }
+
+  &.item-has-value {
+    ion-label {
+      font-size: 14px;
+      color: var(--grid-content-txt);
+      transform: translateY(-10px) !important;
+      font-family: "inter";
+      font-style: normal;
+    }
+  }
+
+  &.item-interactive-disabled {
+    --background: var(--ion-color-border);
+  }
+}
+
+ion-textarea {
+  --padding-top: 3px;
+  --padding-bottom: 3px;
+  font-family: "Roboto";
+  font-style: normal;
+}
+
+/* Text area Css End */
+
+/* Textbox Css Start */
+.textbox {
+  --border-color: var(--ion-color-border);
+  --height: 42px;
+  --min-height: 42px;
+  font-family: "Inter" !important;
+  font-style: normal;
+  color: var(--grid-content-txt); //before label font style
+  font-size: 14px;
+
+  &.item-has-focus {
+    --highlight-color-valid: var(--grid-content-txt);
+    --show-full-highlight: 0.65;
+    --highlight-background: var(--ion-color-border);
+
+    ion-label {
+      font-size: 14px;
+      color: var(--grid-content-txt);
+      transform: translateY(-10px) !important;
+      font-family: "inter";
+      font-style: normal;
+    }
+  }
+
+  &.item-has-value {
+    ion-label {
+      font-size: 14px;
+      color: var(--grid-content-txt);
+      transform: translateY(-10px) !important;
+      font-family: "inter";
+      font-style: normal;
+    }
+
+    .textbox.item-interactive-disabled {
+      --background: var(--ion-color-border);
+    }
+  }
+
+  &.read-only {
+    --background: #f9f9f9;
+
+    &::part(native) {
+      --border-color: var(--ion-color-border);
+    }
+  }
+
+  ion-input {
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    transform: translateY(-10px);
+    font-family: "inter";
+    font-style: normal;
+  }
+
+  ion-label {
+    transform: translateY(12px);
+    font-family: "inter";
+    font-style: normal;
+  }
+}
+
+/* Textbox Css End */
+
+/* Dropdown Css Start */
+.dropdown {
+  --border-color: var(--ion-color-border);
+  --height: 42px;
+  --min-height: 42px;
+  font-family: "Inter" !important;
+  font-style: normal;
+  color: var(--grid-content-txt); //before label font style
+  font-size: 14px;
+
+  &.multiselect {
+    overflow: hidden;
+  }
+
+  ion-select {
+    transform: translateY(-16px);
+
+    &::part(text) {
+      width: 0px;
+    }
+  }
+
+  ion-label {
+    transform: translateY(12px);
+  }
+
+  &::part(native) {
+    border-color: var(--ion-color-border);
+  }
+
+  ion-select::part(icon) {
+    content: url("../assets/icon/Union.png");
+    width: 10px;
+    height: 8px;
+    opacity: 1;
+  }
+}
+
+.dropdown.item-has-focus,
+.dropdown.ion-focused {
+  --highlight-color-valid: var(--grid-content-txt);
+  --show-full-highlight: 0.65;
+  color: var(--grid-content-txt);
+}
+
+.dropdown.item-has-value {
+  ion-label {
+    font-size: 14px;
+    color: var(--grid-content-txt);
+    transform: translateY(-10px) !important;
+  }
+
+  ion-select {
+    transform: translateY(-10px);
+  }
+}
+
+
+
+/*Form label start*/
+.form-label {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--grid-content-txt);
+  font-family: inter;
+  font-style: normal;
+}
+
+.form-label-info {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+  padding: 3px 0;
+}
+
+/*Form label end*/
+
+/*error message start*/
+
+.form-error-message {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 17px;
+  color: #c7152a;
+  margin-left: 8px;
+  font-style: italic;
+}
+
+/*error message end*/
+
+/*form element start*/
+
+.form-element {
+  padding: 7.5px;
+}
+
+/*form element end*/
+
+/*Stacked dropdown start*/
+.dropdown-stacked {
+  --border-color: var(--ion-color-border);
+  --height: 42px;
+  --min-height: 42px;
+  font-family: "Inter" !important;
+  font-style: normal;
+  color: var(--grid-content-txt); //before label font style
+  font-size: 16px;
+
+  &.multiselect {
+    overflow: hidden;
+  }
+
+  ion-select {
+    transform: translateY(-10px);
+
+    &::part(text) {
+      width: 16px;
+    }
+  }
+
+  ion-select::part(icon) {
+    content: url("../assets/icon/Union.png");
+    width: 10px;
+    height: 8px;
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 1;
+  }
+}
+
+.dropdown-stacked.item-has-focus {
+  --highlight-color-valid: var(--grid-content-txt);
+  --show-full-highlight: 0.65;
+
+  &::part(native) {
+    border-color: var(--ion-color-border);
+  }
+
+  ion-select::part(icon) {
+    transform: translate3d(0px, 0px, 0px) rotate(180deg);
+  }
+
+  ion-label {
+    color: var(--grid-content-txt);
+  }
+}
+
+.dropdown-stacked.item-interactive-disabled {
+  --background: var(--ion-color-border);
+}
+
+.dropdown-stacked.ion-focused {
+  --highlight-color-valid: var(--grid-content-txt);
+  --show-full-highlight: 0.65;
+
+  select-text::part(text) {
+    width: 16px;
+  }
+
+  &::part(text) {
+    width: 10px;
+  }
+}
+
+/*form dropdown stacked end*/
+
+/* textbox-stacked Css Start */
+.textbox-stacked {
+  --border-color: var(--ion-color-border);
+  --height: 42px;
+  --min-height: 42px;
+  color: var(--grid-content-txt); //before label font style
+  font-size: 14px;
+
+  // &.read-only {
+  //   --background: #f9f9f9;
+
+  //   &::part(native) {
+  //     --border-color: #a22121 !important;
+  //   }
+  // }
+}
+
+.textbox-stacked.item-has-focus {
+  --highlight-color-valid: var(--grid-content-txt);
+  --show-full-highlight: 0.65;
+}
+
+.textbox-stacked.item-interactive-disabled {
+  --background: var(--ion-color-border);
+}
+
+/* textbox-stacked Css End */
+
+//* form mandatory- field start*//
+.mandatory-field {
+  color: #c7152a;
+  padding-left: 2px;
+  font-size: 14px;
+  font-family: "Inter" !important;
+}
+
+//* form mandatory- field end*//
+
+// wordbreak
+.word-break {
+  word-break: break-all;
+}
+
+
+//modal
+ion-modal {
+  ion-content {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+
+  ion-footer {
+    padding-inline-end: 10px;
+  }
+}
+
+.channel-container {
+
+  // padding-bottom: 170px;
+  .channel-card-container {
+    display: inherit;
+
+    ion-card {
+      margin-left: 15px;
+    }
+
+    .channel-card {
+
+      //sm
+      @media (max-width: 576px) {
+        zoom: 0.65;
+      }
+
+      //sm
+      @media (min-width: 576px) {
+        zoom: 0.75;
+      }
+
+      // md
+      @media (min-width: 768px) {
+        zoom: 0.8;
+      }
+
+      //lg
+      @media (min-width: 992px) {
+        zoom: 0.8;
+      }
+
+      //xl
+      @media (min-width: 1200px) {
+        zoom: 0.8;
+      }
+
+      width: 183px;
+      height: 223px;
+      margin: 10px;
+      justify-content: center;
+      text-align: center;
+      background: var(--ion-template-background);
+      border-radius: 10px;
+      overflow: visible;
+
+      &:hover {
+        background: #e3e6ed;
+        text-decoration: underline;
+      }
+
+      &.selected {
+        background: var(--selected-channels-bg);
+      }
+
+      &:not(.selected) {
+        .tick-mark {
+          display: none;
+        }
+      }
+
+      .tick-mark {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        width: 27px;
+        height: 27px;
+      }
+
+      .img-label-container {
+        padding: 40px 37px 25px 35px;
+
+        .img-container {
+          width: 110px;
+          height: 105px;
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+
+  .channel-title {
+    // font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: blue;
+  }
+}

@@ -1,0 +1,139 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+// .popover-wide {
+//   box-shadow: none !important;
+//   border-radius: 0px;
+//   --box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
+//   --min-height: auto;
+//   --max-height: 250px;
+
+//   ion-list {
+//     border-radius: 0px;
+//     padding: 0px;
+//   }
+
+//   .item-radio-checked {
+//     --background-focused: #f6f6f6;
+//     --color: var(--ion-color-primary) !important;
+//     --background: #f6f6f6;
+//     font-weight: 500;
+//     --background-focused: var(--ion-color-primary) !important;
+//     --background-hover: var(--ion-color-primary) !important;
+//     --background-focused-opacity: 0.12 !important;
+//     --background-hover-opacity: 0.18 !important;
+
+//   }
+
+//   .sc-ion-select-popover-md {
+//     box-shadow: none !important;
+//     --background: #f6f6f6;
+//     font-family: "Inter";
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 12px;
+//     line-height: 15px;
+//     --background-focused: var(--ion-color-primary) !important;
+//     --background-hover: var(--ion-color-primary) !important;
+//     --background-focused-opacity: 0.12 !important;
+//     --background-hover-opacity: 0.18 !important;
+//     /* identical to box height */
+//     --checkmark-color: var(--ion-color-secondary);
+//   }
+
+//   ion-item {
+//     border-bottom: 0.2px solid #cecece;
+//   }
+
+//   ion-item:last-child {
+//     border-bottom: none;
+//   }
+// }
+
+.ion-loading-class {
+  --background: #ffffff;
+  --spinner-color: #000000;
+}
+
+//toaster-style-start
+.toaster-style {
+  --background: #ffffff;
+  --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --color: #343a40;
+  --min-width: 310px;
+  --max-width: 310px;
+  --min-height: 52px;
+  --max-height: 52px;
+  --start: left;
+  transform: translateY(-56px) !important;
+}
+
+ion-toast::part(icon) {
+  background: var(--ion-color-primary);
+  color: white;
+  border-radius: 14px;
+}
+
+.cancel-toaster-style {
+  --background: #ffffff;
+  --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --color: #343a40;
+  --min-width: 310px;
+  --max-width: 310px;
+  --min-height: 52px;
+  --max-height: 52px;
+  --start: left;
+  transform: translateY(-56px) !important;
+}
+
+ion-toast.cancel-toaster-style::part(icon) {
+  background: red;
+  color: white;
+  border-radius: 14px;
+}
+
+//toaster ends
+.padding-hide-md-down {
+  --ion-grid-padding-xl: 20px;
+  --ion-grid-padding-lg: 20px;
+  --ion-grid-padding-md: 20px;
+  --ion-grid-padding-sm: 9px;
+  --ion-grid-padding-xs: 9px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.margin-hide-md-down {
+  --ion-grid-margin-xl: 20px;
+  --ion-grid-margin-lg: 20px;
+  --ion-grid-margin-md: 20px;
+  --ion-grid-margin-sm: 9px;
+  --ion-grid-margin-xs: 9px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

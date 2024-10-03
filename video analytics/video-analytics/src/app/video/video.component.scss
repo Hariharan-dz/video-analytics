@@ -1,0 +1,93 @@
+@import "../../theme/form.scss";
+
+.close_icon {
+  --background: transparent;
+  --box-shadow: none;
+  color: black;
+}
+
+ion-button {
+  text-transform: capitalize;
+  --background: green;
+}
+
+ion-content {
+  .img-col {
+    display: flex;
+    justify-content: center;
+
+    video {
+      width: 500px;
+      height: auto;
+    }
+  }
+
+  table,
+  th {
+    border: 1px solid black;
+    margin-left: 2px;
+  }
+
+  td,
+  th {
+    border: 1px solid;
+    padding: 5px 0px 5px 12px;
+    width: 200px;
+    height: 40px;
+    max-width: 200px;
+
+  }
+}
+
+.dropdown-stacked ion-select {
+  transform: translateY(-12px) !important;
+}
+
+.notification-card {
+  position: relative;
+  text-align: center;
+  color: var(--toolbar-header);
+  width: 130px;
+  height: 137px;
+  background-color: #f4f4f4;
+  border: 1px solid#f4f4f4;
+  overflow: visible;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  border-radius: 9px;
+
+  ion-img {
+    height: 24px;
+  }
+
+  .user-selected {
+    height: 49px;
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
+
+  &:hover {
+    background-color: var(--noti-icon-bg-color);
+  }
+
+  &.selected {
+    background-color: green;
+    border: 1px solid green;
+    color: white;
+  }
+
+  &:not(.selected) {
+    .tick-mark {
+      display: none;
+    }
+  }
+
+  .tick-mark {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+  }
+}

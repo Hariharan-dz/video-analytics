@@ -1,0 +1,49 @@
+@import "../../theme/form.scss";
+
+.close_icon {
+  --background: transparent;
+  --box-shadow: none;
+  color: black;
+}
+
+ion-button {
+  text-transform: capitalize;
+  --background: green;
+}
+
+ion-content {
+  .img-col {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 80px;
+      height: 110px;
+      position: relative;
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    ion-checkbox {
+      position: absolute;
+      right: -3px;
+      top: -3px;
+      --border-radius: 14px;
+      --checkmark-width: 2px;
+    }
+  }
+
+  .close-icon {
+    position: absolute;
+    z-index: 1;
+    right: -4px;
+    border: none;
+    top: -4px;
+    background: white;
+    border-radius: 30px;
+    color: #d90707;
+    zoom: 1.3;
+    cursor: pointer;
+  }
+
+}

@@ -1,0 +1,194 @@
+<!-- eslint-disable @angular-eslint/template/eqeqeq -->
+<ion-content style="--padding-top: 35px; --padding-start: 10px;
+--padding-end: 10px;">
+  <ion-row>
+    <ion-col>
+      <h3>COLLECTIONS </h3>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="display: flex;
+    justify-content: end;" size="12">
+      <ion-button (click)="isModalOpen = true">
+        <ion-label>Create Collection</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <app-data-table [tableDetails]="image"></app-data-table>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-modal style="--height: 300px;" [isOpen]="isModalOpen" [backdropDismiss]="false">
+  <ng-template>
+    <ion-header>
+      <ion-row>
+        <ion-col style="display: flex;">
+          <ion-title style="padding-inline-start: 10px;">Create Collection</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-button class="close_icon" style="float: right; --padding-end: 5px;" (click)="isModalOpen=false">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-header>
+
+    <ion-content style="--padding-top: 10px;">
+      <ion-row>
+        <ion-col>
+          <ion-item fill="outline" mode="md" class="textbox ion-margin-bottom m-r-5">
+            <ion-label position="floating">Collection Name</ion-label>
+            <ion-input [(ngModel)]="collectionId" type="text" name="first_name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col style="display: flex;justify-content: flex-end;">
+          <ion-button style="margin-right: 5px;" (click)="isModalOpen=false">
+            <ion-label>Cancel</ion-label>
+          </ion-button>
+          <ion-button (click)="createCollection()">
+            <ion-label>Create</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [backdropDismiss]="false" [isOpen]="isEditOpen">
+  <ng-template>
+    <ion-header>
+      <ion-row>
+        <ion-col size="6" style="display: flex;
+        align-items: center; padding-inline-start:15px">
+          <ion-label>Edit</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="close_icon" style="float: right;" (click)="reset()">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-header>
+
+    <ion-content style="--padding-top: 10px;">
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Collection Name : <span>{{userDetails.CollectionId}}</span></ion-label>
+        </ion-col>
+        <ion-col size="12">
+          <ion-label>Face Count : <span>{{userDetails.FaceCount}}</span></ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="display: flex;
+        justify-content: flex-end;">
+          <ion-button style="--background: green;margin-right: 5px;" (click)="file.click()">
+            <!-- *ngIf="selectedFiles.length < 1 && !delete_Image " -->
+            <ion-label>
+              <input type="file" name="file" multiple #file id="file" style="display: none"
+                (change)="onFileSelected($event)">
+              Add
+            </ion-label>
+          </ion-button>
+          <ion-button *ngIf="(selectedFiles.length > 0 && !delete_Image) || (getCollection !='' &&!delete_Image) "
+            (click)="this.delete_Image =true">
+            <ion-label>Delete</ion-label>
+          </ion-button>
+          <ion-button *ngIf="selectedFiles.length > 0 && delete_Image " (click)="onCancel()">
+            <ion-label>Cancel</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col size="12">
+          <ion-row style="padding-bottom: 10px;">
+            <ion-col size="12" *ngIf="selectedFiles.length > 0">
+              <h5 *ngIf="selectedFiles.length > 0">Upload Images</h5>
+            </ion-col>
+            <ion-col size="2" class="img-col" *ngFor="let face of selectedFiles; let i=index  ">
+              <ion-icon class="close-icon" (click)="deleteImage(face)" name="close-circle"></ion-icon>
+              <!-- <ion-checkbox (checked)="deleteCheckedImage(face)" *ngIf="delete_Image"></ion-checkbox> -->
+              <img style="position: relative;" id="img" [src]="face" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="12">
+          <ion-row style="
+          padding: 10px 0;">
+            <ion-col size="2" class="img-col" *ngFor="let face of (getCollection || {}).Faces; let i=index  ">
+              <!-- <ion-button (click)="deleteImage(this.selectedFiles[i]);">hi</ion-button> -->
+              <ion-checkbox style="background: green;
+              border-color: green;" (ionChange)="deleteCheckedImage($event,face)" *ngIf="delete_Image"></ion-checkbox>
+              <img id="img" [src]="ls[face.FaceId]" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col size="12" style="display: flex;
+        justify-content: flex-end;" *ngIf="selectedFiles.length > 0 && !delete_Image">
+          <ion-button (click)="uploadImage()">
+            <ion-label>Upload</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col size="12" style="display: flex;
+        justify-content: flex-end;" *ngIf="delete_Image ">
+          <ion-button (click)="deleteImageById()">
+            <ion-label>Delete</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ng-template>
+</ion-modal>
+
+<ion-modal [backdropDismiss]="false" [isOpen]="isViewOpen">
+  <ng-template>
+    <ion-header>
+      <ion-row>
+        <ion-col size="5.5" offset=".2" style="display: flex;
+        align-items: center;">
+          <ion-label>{{userDetails.CollectionId}}</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="close_icon" style="float: right; --padding-end: 0;" (click)="isViewOpen=false">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-header>
+    <ion-content style="--padding-top: 10px;">
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Collection Name : <span>{{userDetails.CollectionId}}</span></ion-label>
+        </ion-col>
+        <ion-col size="12">
+          <ion-label>Face Count : <span>{{userDetails.FaceCount}}</span></ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="img-col" size="1.5" offset="0.5"
+          *ngFor="let face of (getCollection || {}).Faces; let i=index  ">
+          <img id="img" [src]=" ls[face.FaceId]" />
+        </ion-col>
+      </ion-row>
+    </ion-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col size="12" style="display: flex;
+        justify-content: flex-end;">
+          <ion-button (click)="isViewOpen=false">
+            <ion-label>cancel</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ng-template>
+</ion-modal>

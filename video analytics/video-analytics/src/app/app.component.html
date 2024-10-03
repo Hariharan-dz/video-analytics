@@ -1,0 +1,28 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-split-pane when="md" contentId="menu-content">
+      <ion-menu class="ion-side-menu" contentId="menu-content" [ngClass]="{ collapse: isMenuCollapse }">
+        <ion-content class="sidebar-container">
+          <ion-menu-toggle autoHide="false">
+            <ion-item class="ion-hide-md-down" lines="none">
+              <ion-icon class="cursor-pointer" name="menu" slot="{{ isMenuCollapse ? '' : 'end' }}"
+                (click)="isMenuCollapse = !isMenuCollapse"></ion-icon>
+            </ion-item>
+            <ion-item lines="none" [routerLink]="item.link" [title]="item.title" *ngFor="let item of menuList"
+              routerDirection="root" routerLinkActive="active-link">
+              <ion-icon [name]="item.image" class="pointer-none"></ion-icon>
+              <ion-label [title]="item.title" class="ion-padding">
+                {{item.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-content>
+      </ion-menu>
+      <ion-router-outlet id="menu-content"></ion-router-outlet>
+    </ion-split-pane>
+  </ion-content>
+</ion-app>
